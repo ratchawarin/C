@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F64CE837-3C6C-4741-9E91-94E5825A55A9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PROJECTING</RootNamespace>
+    <AssemblyName>PROJECTING</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.8.0.3\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.3\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.5\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.3.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="Saladpuk.EMVCo, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Saladpuk.EMVCo.1.1.1\lib\netstandard2.0\Saladpuk.EMVCo.dll</HintPath>
+    </Reference>
+    <Reference Include="Saladpuk.EMVCo.Contracts, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Saladpuk.EMVCo.Contracts.1.0.1\lib\netstandard2.0\Saladpuk.EMVCo.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Saladpuk.PromptPay, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Saladpuk.PromptPay.3.0.1\lib\netstandard2.0\Saladpuk.PromptPay.dll</HintPath>
+    </Reference>
+    <Reference Include="Saladpuk.PromptPay.Contracts, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Saladpuk.PromptPay.Contracts.3.0.1\lib\netstandard2.0\Saladpuk.PromptPay.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="home regis-2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home regis-2.Designer.cs">
+      <DependentUpon>home regis-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="home-1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home-1.Designer.cs">
+      <DependentUpon>home-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infostock 8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infostock 8.Designer.cs">
+      <DependentUpon>infostock 8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edit user admin 11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edit user admin 11.Designer.cs">
+      <DependentUpon>edit user admin 11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bill one 9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bill one 9.Designer.cs">
+      <DependentUpon>bill one 9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyadmin12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyadmin12.Designer.cs">
+      <DependentUpon>historyadmin12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="true bill 10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="true bill 10.Designer.cs">
+      <DependentUpon>true bill 10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyuser.Designer.cs">
+      <DependentUpon>historyuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edit user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edit user.Designer.cs">
+      <DependentUpon>edit user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="store user 6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="store user 6.Designer.cs">
+      <DependentUpon>store user 6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="register-3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="register-3.Designer.cs">
+      <DependentUpon>register-3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="about me 4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="about me 4.Designer.cs">
+      <DependentUpon>about me 4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin login 5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin login 5.Designer.cs">
+      <DependentUpon>admin login 5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="system admin5-5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="system admin5-5.Designer.cs">
+      <DependentUpon>system admin5-5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin stock 7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin stock 7.Designer.cs">
+      <DependentUpon>admin stock 7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home regis-2.resx">
+      <DependentUpon>home regis-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home-1.resx">
+      <DependentUpon>home-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infostock 8.resx">
+      <DependentUpon>infostock 8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edit user admin 11.resx">
+      <DependentUpon>edit user admin 11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bill one 9.resx">
+      <DependentUpon>bill one 9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyadmin12.resx">
+      <DependentUpon>historyadmin12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="true bill 10.resx">
+      <DependentUpon>true bill 10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyuser.resx">
+      <DependentUpon>historyuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edit user.resx">
+      <DependentUpon>edit user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="register-3.resx">
+      <DependentUpon>register-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="about me 4.resx">
+      <DependentUpon>about me 4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin login 5.resx">
+      <DependentUpon>admin login 5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="system admin5-5.resx">
+      <DependentUpon>system admin5-5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin stock 7.resx">
+      <DependentUpon>admin stock 7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="store user 6.resx">
+      <DependentUpon>store user 6.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าหลัก.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\เข้าสู่ระบบ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\สมัครสมาชิก.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ผู้จัดทำ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ผู้จัดทำ %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADMIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าขายของหลัก.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\421648.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4216481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-icon-2048x2048-ihoxz4vq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-icon-2048x2048-ihoxz4vq1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าขายของหลัก.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าขายของหลัก1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heading %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heading %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music Store for you.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music Store for you1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G101.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\สมัครสมาชิก1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าหลัก1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\เข้าสู่ระบบ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ผู้จัดทำ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\หน้าขายของหลัก2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADMIN login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADMIN login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heading %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heading %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\แก้ไข user admin %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order23 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order32132.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order32132 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history %281%2922.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\เข้าสู่ระบบ5820.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order1666.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system admin1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
